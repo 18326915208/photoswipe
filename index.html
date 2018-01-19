@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="css/default-skin/default-skin.css"/>
+		<link rel="stylesheet" type="text/css" href="css/photoswipe.css"/>
+		<link rel="stylesheet" type="text/css" href="css/swiper.css"/>
+		<style>
+		    html, body {
+		      position: relative;
+		      height: 100%;
+		    }
+		    body {
+		      background: #eee;
+		      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+		      font-size: 14px;
+		      color:#000;
+		      margin: 0;
+		      padding: 0;
+		    }
+		    .swiper-container {
+		      width: 100%;
+		      height: 200px;
+		    }
+		    .swiper-slide {
+		      text-align: center;
+		      font-size: 18px;
+		      background: #fff;
+		
+		      /* Center slide text vertically */
+		      display: -webkit-box;
+		      display: -ms-flexbox;
+		      display: -webkit-flex;
+		      display: flex;
+		      -webkit-box-pack: center;
+		      -ms-flex-pack: center;
+		      -webkit-justify-content: center;
+		      justify-content: center;
+		      -webkit-box-align: center;
+		      -ms-flex-align: center;
+		      -webkit-align-items: center;
+		      align-items: center;
+		    }
+		    .swiper-slide img{
+		    	width: 100%;
+		    	height: 100%;
+		    }
+		  </style>
+	</head>
+	<body>
+		<h4>点击放大图片</h4>
+		<div class="swiper-container" id="picter">
+		    <div class="swiper-wrapper" id="swiperWrap">
+		      <div class="swiper-slide"><img src="img/dd.jpg"/></div>
+		      <div class="swiper-slide"><img src="img/ee.jpg"/></div>
+		      <div class="swiper-slide"><img src="img/rr.jpg"/></div>
+		      <div class="swiper-slide"><img src="img/qq.jpg"/></div>
+		      <div class="swiper-slide"><img src="img/ss.jpg"/></div>
+		    </div>
+		    <!-- Add Pagination -->
+		    <div class="swiper-pagination"></div>
+		    <!-- Add Arrows -->
+		    <!--<div class="swiper-button-next"></div>
+		    <div class="swiper-button-prev"></div>-->
+		  </div>
+		<!---------------photoswipe开始----------------------->
+		<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+		    <div class="pswp__bg"></div>
+		    <div class="pswp__scroll-wrap">
+		        <div class="pswp__container">
+		            <div class="pswp__item"></div>
+		            <div class="pswp__item"></div>
+		            <div class="pswp__item"></div>
+		        </div>
+		        <div class="pswp__ui pswp__ui--hidden">
+		            <div class="pswp__top-bar">
+		                <div class="pswp__counter"></div>
+		                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+		                <button class="pswp__button pswp__button--share" title="Share"></button>
+		                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+		                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+		                <div class="pswp__preloader">
+		                    <div class="pswp__preloader__icn">
+		                      <div class="pswp__preloader__cut">
+		                        <div class="pswp__preloader__donut"></div>
+		                      </div>
+		                    </div>
+		                </div>
+		            </div>
+		
+		            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+		                <div class="pswp__share-tooltip"></div> 
+		            </div>
+		
+		            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+		            </button>
+		
+		            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+		            </button>
+		
+		            <div class="pswp__caption">
+		                <div class="pswp__caption__center"></div>
+		            </div>
+		        </div>
+		    </div>
+		</div>
+		<!--------------photoswipe结束------------------->
+		<script src="js/photoswipe-ui-default.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/photoswipe.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/swiper.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+		    var swiper = new Swiper('.swiper-container', {
+		    	loop: true,
+		        pagination: {
+			        el: '.swiper-pagination',
+			        type: 'fraction',
+		        },
+		        autoplay:true
+//		        navigation: {
+//			        nextEl: '.swiper-button-next',
+//			        prevEl: '.swiper-button-prev',
+//		        },
+		    });
+		    
+		    var openPhotoSwipe = function() {
+		    var pswpElement = document.querySelectorAll('.pswp')[0];
+		
+		    // build items array
+		    var items = [
+		        {
+		            src: 'img/dd.jpg',
+		            w: 964,
+		            h: 1024
+		        },
+		        {
+		            src: 'img/ee.jpg',
+		            w: 1024,
+		            h: 683
+		        },
+		        {
+		            src: 'img/qq.jpg',
+		            w: 1024,
+		            h: 683
+		        },
+		        {
+		            src: 'img/rr.jpg',
+		            w: 1024,
+		            h: 683
+		        },
+		        {
+		            src: 'img/ss.jpg',
+		            w: 1024,
+		            h: 683
+		        }
+		    ];
+//			var items = [];
+//          var getItems = function () {
+//              var aDiv = document.getElementById("swiperWrap");
+//              if (aDiv.hasChildNodes()) {
+//                  for (var i = 0; i < aDiv.children.length; i++) {
+//                      var img = aDiv.children;
+//                      var item = {
+//                          src: img[i].src,
+//                          w: img[i].naturalWidth,
+//                          h: img[i].naturalHeight
+//                      };
+//                      items.push(item);
+//                      console.log(i + "===child====" + (item.src));
+//                      console.log(i + "===child====" + (item.w));
+//                      console.log(i + "===child====" + (item.h));
+//                  }
+//              }
+//          };
+//          getItems();
+		    // define options (if needed)
+		    var options = {
+		        // history & focus options are disabled on CodePen        
+//		        history: false,
+//		        focus: false,
+//		        showAnimationDuration: 0,
+//		        hideAnimationDuration: 0
+				index: 0 //start at first slide
+		    };
+		    var gallery = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, items, options);
+		    gallery.init();
+		};
+//		openPhotoSwipe();
+		document.getElementById('picter').onclick = openPhotoSwipe;
+		</script>
+	</body>
+</html>
